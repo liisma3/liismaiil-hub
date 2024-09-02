@@ -51,65 +51,11 @@ const initialState: SprintStateProps = {
   faultsNbContext: 0,
   correctsNbContext: 0,
   evalContext: EVAL_STATE.ORDER,
+  validContext: false,
 
   //____________________________________
 
-  sprintsTitles: [''],
-  showMenu: false,
-  stages: [{}],
-  validGrids: [''],
-  stage: '',
-  spaceSprint: '',
-  //validStages: [''],
-  // minmax: { min: -1, max: -1 },
-  stageSelected: {
-    id: -1,
-    title: '',
-    grids: [{
-      author: '',
-      grid: -1,
-      group: [-1],
-      title: '',
-      description: '',
-      souraNb: -1,
-      arabName: '',
-      souraName: '',
-      ayahs: [[{
-        order: -1,
-        text: '',
-        juz: -1
-      }
-      ]]
-    }
-    ],
-    author: '',
 
-  },
-
-  gridsAyahsSelected: [{
-    order: -1,
-    text: '',
-    juz: -1
-  }
-  ],
-
-
-  grid: {
-    author: '',
-    grid: -1,
-    group: [-1],
-    title: '',
-    description: '',
-    souraNb: -1,
-    arabName: '',
-    souraName: '',
-    ayahs: [[{
-      order: -1,
-      text: '',
-      juz: -1
-    }
-    ]]
-  },
   ayHided: [{ id: -1, order: -1 }],
   ayahArraySelected: undefined,
 
@@ -168,6 +114,10 @@ const sprintSlice = createSlice({
     setHideNbContext(state: SprintStateProps,
       action: PayloadAction<{ hide: boolean }>) {
       state.hideNbContext = action.payload.hide
+    },
+    setValidContext(state: SprintStateProps,
+      action: PayloadAction<{ validCtxt: boolean }>) {
+      state.validContext = action.payload.validCtxt
     },
     setEvalContext(state: SprintStateProps,
       action: PayloadAction<{ eval: EVAL_STATE }>) {
